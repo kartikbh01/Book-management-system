@@ -1,1 +1,32 @@
-<p>book-list works!</p>
+<div class="container">
+    <h1>Books</h1>
+
+    <table class="books-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books$ | async">
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td><button class="btn btn-danger" (click)="removeBook(book.id)">Remove Book</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="create-section">
+        <h2>Create a new book</h2>
+        <div class="form-group">
+            <input #bookId type="text" placeholder="Book Id" class="form-input">
+            <input #bookTitle type="text" placeholder="Book Title" class="form-input">
+            <input #bookAuthor type="text" placeholder="Author" class="form-input">
+            <button class="btn btn-primary" (click)="addBook(bookId.value, bookTitle.value, bookAuthor.value)">
+                Add Book
+            </button>
+        </div>
+    </div>
+</div>

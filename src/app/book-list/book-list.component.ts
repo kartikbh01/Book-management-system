@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from '../models/book';
@@ -6,15 +7,15 @@ import { AddBook, RemoveBook } from '../books/book.actions';
 
 @Component({
   selector: 'app-book-list',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
 export class BookListComponent {
 
   books$: Observable<Book[]>;
-  constructor(private store: Store<{books: Book[]}>) {
-    this.books$ = store.pipe(select("books"))
+  constructor(private store: Store<{book: Book[]}>) {
+    this.books$ = store.pipe(select("book"))
   }
 
   addBook(id: string, title:string, author:string) {
