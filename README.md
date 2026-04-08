@@ -1,59 +1,42 @@
-# BookManagementSystem
+# Book Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.23.
+A simple Angular application for managing a collection of books using NgRx for state management.
 
-## Development server
+![alt text](image.png)
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
+- **View Books**: Display a list of books in a table format showing title and author.
+- **Add Books**: Add new books to the collection with ID, title, and author.
+- **Remove Books**: Delete books from the collection by ID.
+- **State Management**: Uses NgRx Store and Effects for predictable state management.
+- **Reactive UI**: Built with Angular's reactive components and RxJS observables.
+
+## Technologies Used
+
+- **Angular 19**: Framework for building the web application.
+- **NgRx Store**: For managing application state.
+- **NgRx Effects**: For handling side effects like API calls.
+- **RxJS**: For reactive programming and handling asynchronous operations.
+- **TypeScript**: For type-safe development.
+- **Angular CLI**: For project scaffolding and build tools.
+
+## Project Structure
+
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+src/
+├── app/
+│   ├── app.component.*          # Root component
+│   ├── app.config.ts            # Application configuration
+│   ├── app.routes.ts            # Routing configuration
+│   ├── app.state.ts             # Global state setup
+│   ├── book-list/               # Book list component
+│   │   ├── book-list.component.*
+│   ├── books/                   # Books feature module
+│   │   ├── book.actions.ts      # NgRx actions
+│   │   ├── book.effects.ts      # NgRx effects
+│   │   ├── book.reducer.ts      # NgRx reducer
+│   │   ├── book.service.ts      # Book service
+│   └── models/
+│       └── book.ts              # Book interface
 ```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
